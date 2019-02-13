@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import org.json.simple.JSONObject;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -66,7 +68,7 @@ public class Driver {
 			StringEntity params = new StringEntity(obj.toString());
 		    request.addHeader("content-type", "application/json");
 		    request.setEntity(params);
-		    httpClient.execute(request);
+		    HttpResponse httpResponse = httpClient.execute(request);
 		    
 		} catch(Exception x){
 			x.printStackTrace();
